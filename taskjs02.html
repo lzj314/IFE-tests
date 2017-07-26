@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+    #box{
+        position: absolute;
+        left: 150px;
+        top: 100px;
+        height: 500px;
+    }
+    #box li{
+        text-align: center;
+        display: inline-block;
+        width: 20px;
+        height: 30px;
+        font-size: 12px;
+        background-color: red;
+        color: #fff;
+        line-height: 30px;
+        margin-right: 10px;
+        vertical-align: bottom;
+    }
+    </style>
+</head>
+<body>
+<input type="text" id="txt">
+<button id="leftIn">左侧入</button>
+<button id="rightIn">右侧入</button>
+<button id="leftOut">左侧出</button>
+<button id="rightOut">右侧出</button>
+<button id="bubble">冒泡排序</button>
+<ul id="box">
+</ul>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    //文本输入值
+    var txt=$('txt');
+    //左侧进
+    var leftIn=$('leftIn');
+    //右侧进
+    var rightIn=$('rightIn');
+    //左侧出
+    var leftOut=$('leftOut');
+    //右侧出
+    var rightOut=$('rightOut');
+    //排序按钮
+    var bubble=$('bubble');
+//    var box=$('box');
+    //声明一个空数组；储存input输入的值
+    var myArr=[];
+    //左侧进监听点击事件，点击完进行box里的li创建。
+    leftIn.addEventListener('click',function () {
+        left(txt.value);
+        renderArr(myArr);
+        txt.value='';
+    },false);
+    //按钮点击监听可视化排序
+    bubble.addEventListener('click',function () {
+        visibleSort(sortArr(myArr),stateArr);
+    })
+    //检测输入的值是否符合条件
+    function checkInput(num) {
+        if(num==''){
+            alert('请输入内容');
+            return false;
+        }else if(isNaN(num)){
+            alert('请输入数字');
+            return false;
+        }else if(Number(num)<10||Number(num)>100){
+            alert('请输入10-100的数字');
+            return false;
+        }
+            return true;
+    }
+    //左侧进,将数据推入数组myArr
+    function left(txtvalue) {
+        if(checkInput(txtvalue)==true){
+            myArr.unshift(txtvalue);
+        }
+    }
+    //根据myArr数组创建节点
+    function renderArr(myarr) {
+        var box=$('box');
+        box.innerHTML='';//每次创建之前清空box里面的内容包括(li)
+        for(var i=0,len=myarr.length;i<len;i++){
+            var li=document.createElement('li');
+            li.innerHTML=myarr[i];
+            var heightSize=myarr[i];
+            li.style.height=heightSize+'px';
+            box.appendChild(li);
+        }
+
+
+    }
+    //创建函数记录冒泡排序的状态，放入一个数组中。
+    var stateArr=[];
+    function sortArr(myarr) {
+        for(var i=0,len=myarr.length;i<len-1;i++){
+            for(var j=0,len=myarr.length;j<len-1-i;j++){
+                if(myarr[j]>myarr[j+1]){
+                    var tmp=myarr[j];
+                    myarr[j]=myarr[j+1];
+                    myarr[j+1]=tmp;
+                }
+                //记录每次排序换位置的状态，将状态数组放入stateArr中
+                stateArr.push(JSON.parse(JSON.stringify(myarr)));
+            }
+        }
+    }
+    //可视化排序 传入排序方法（冒泡排序）和状态数组（stateArr）
+    function visibleSort(sortFunc,statearr) {
+        var tmpArr=myArr.slice();//将myArr数组拷贝一份
+        sortArr(tmpArr); //排序
+        var timer=setInterval(function () {
+            var firstState=statearr.shift();//截取状态数组中第一个数组
+            if(statearr.length>=1){
+                renderArr(firstState);//按照该数组重新创建节点
+            }else {
+                clearInterval(timer);
+            }
+        },50)
+    }
+    //点击删除该点击节点
+    $('box').addEventListener('click',function (event) {
+        var event=event||window.event;
+        var target=event.target||event.srcElement;
+        if(target.nodeName.toLowerCase()=='li'){
+            $('box').removeChild(target);
+        }
+    })
+</script>
+</body>
+</html>

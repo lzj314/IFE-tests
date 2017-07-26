@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ife task2017 js04</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    span{
+        text-align: center;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-color: red;
+        color: #fff;
+        line-height: 30px;
+        margin-right: 10px;
+    }
+    .current{
+        text-align: center;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-color: red;
+        color: #fff;
+        line-height: 30px;
+        margin-right: 10px;
+    }
+</style>
+<body>
+<input type="text" id="txt">
+<button id="leftIn">左侧入</button>
+<button id="rightIn">右侧入</button>
+<button id="leftOut">左侧出</button>
+<button id="rightOut">右侧出</button>
+<div id="box">
+<span>10</span>
+<span>3</span>
+<span>7</span>
+<span>12</span>
+<span>11</span>
+<span>30</span>
+</div>
+<script>
+    var txt=document.getElementById('txt');
+    var leftIn=document.getElementById('leftIn');
+    var rightIn=document.getElementById('rightIn');
+    var leftOut=document.getElementById('leftOut');
+    var rightOut=document.getElementById('rightOut');
+    var box=document.getElementById('box');
+
+//    console.log(spans);
+
+    leftIn.onclick=function () {
+        var newSpan=document.createElement('span');
+        var insertNum=txt.value;
+        var spans=box.children;
+        if(insertNum==''){
+            alert('请输入内容');
+        }else if(isNaN(Number(insertNum))){
+            alert('请输入数字');
+        }else {
+            newSpan.className='current';
+            newSpan.innerHTML=insertNum;
+            console.log(insertNum);
+            box.insertBefore(newSpan,spans[0]);
+            txt.value='';
+        }
+    };
+    rightIn.onclick=function () {
+        var newSpan=document.createElement('span');
+        var insertNum=txt.value;
+        var spans=box.children;
+        if(insertNum==''){
+            alert('请输入内容');
+        }else if(isNaN(Number(insertNum))){
+            alert('请输入数字');
+        }else {
+            newSpan.className='current';
+            newSpan.innerHTML=insertNum;
+            console.log(insertNum);
+            box.appendChild(newSpan);
+            txt.value='';
+        }
+    };
+    leftOut.onclick=function () {
+        var spans=box.children;
+        var removeNum=spans[0].innerHTML;
+        box.removeChild(spans[0]);
+        alert(removeNum);
+    };
+    rightOut.onclick=function () {
+        var spans=box.children;
+        var removeNum=spans[spans.length-1].innerHTML;
+        box.removeChild(spans[spans.length-1]);
+        alert(removeNum);
+    };
+    for(var i=0;i<box.children.length;i++){
+      box.children[i].onclick=function () {
+          box.removeChild(this);
+      }
+    }
+</script>
+</body>
+</html>

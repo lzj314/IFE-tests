@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>baidutask05</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #cccccc;
+        }
+        .content{
+            width: 100%;
+        }
+        .nav {
+            width: 1225px;
+            height: 100px;
+            background-color: #333333;
+        }
+        .nav-wrap{
+            width: 90%;
+            height: 100px;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .nav .nav-wrap img {
+            position: absolute;
+            left: 0px;
+            top: 30px;
+        }
+
+        .nav ul {
+            float: right;
+        }
+
+        .nav li {
+            float: left;
+            margin-left: 25px;
+            line-height: 100px;
+        }
+
+        .nav span {
+            color: white;
+            font-size: 15px;
+        }
+
+        .nav .special {
+            color: gray;
+        }
+
+        /*以上是导航条的CSS代码*/
+        .left{
+            margin-right: 503px;
+        }
+        .b {
+            margin: 10px auto;
+            background-color: white;
+            border-bottom-style: outset;
+            border-right-style: outset;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .b h1, h2, p {
+            padding-left: 20px;
+            padding-top: 20px;
+        }
+
+        .b .suojin {
+            text-indent: 25px;
+        }
+
+        .huise {
+            color: gray;
+        }
+
+        .img {
+            border: 1px black solid;
+            width: 150px;
+            height: 120px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            float: left;
+        }
+
+        .img p {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .img img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .b table {
+            width: 100%;
+            margin: 0px auto;
+        }
+
+        .b th {
+            background-color: black;
+            font-size: 15px;
+            color: white;
+            text-align: left;
+            padding: 5px;
+        }
+
+        .b td {
+            padding: 5px;
+        }
+
+        .b tr:last-of-type {
+            background-color: #999999;
+        }
+
+        .footer {
+            width: 480px;
+            height: 500px;
+            margin: 0 10px;
+            background-color: white;
+            border-bottom-style: outset;
+            border-right-style: outset;
+            float: right;
+            font-size: 12px;
+        }
+
+        .footer h1 {
+            padding: 10px;
+        }
+
+        .footer table {
+            margin: 0 auto;
+        }
+
+        .footer table .left {
+            text-align: right;
+            padding-right: 10px;
+            padding-top: 5px;
+        }
+
+        .footer table .right {
+            text-align: left;
+            padding-top: 5px;
+        }
+
+        .footer table .personal {
+            text-align: right;
+            vertical-align: top;
+            padding-right: 10px;
+            padding-top: 5px;
+        }
+
+        .submit {
+            width: 100%;
+            height: 50px;
+            background-color: blue;
+            color: white;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            height: 80px;
+            width: 100%;
+            background-color: black;
+        }
+
+        .copyright p {
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-wrap">
+        <img src="images/d.png">
+        <ul>
+            <li><span>导航链接一</span></li>
+            <li><span>导航链接二</span></li>
+            <li><span>导航链接三</span></li>
+            <li><span class="special">导航链接四</span></li>
+        </ul>
+    </div>
+    </div>
+    <div class="content">
+    <div class="footer">
+        <h1>这是一个侧栏标题</h1>
+        <table>
+            <tr>
+                <td class="left"><label for="yx">请输入邮箱地址</label></td>
+                <td class="right">
+                    <form><input type="text" id="yx"></form>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="right">邮箱地址按格式输入</td>
+            </tr>
+            <tr>
+                <td class="left"><label for="mm">请输入密码</label></td>
+                <td class="right">
+                    <form>
+                        <input type="password" name="password" value="123456" id="mm">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="mm2">请重复输入密码</label></td>
+                <td class="right">
+                    <form>
+                        <input type="password" name="password" value="123456" id="mm2">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="right">密码为6-16位的字母或者数字</td>
+            </tr>
+            <tr>
+                <td class="left">性别</td>
+                <td class="right">
+                    <form>
+                        <input type="radio" name="s" value="male">男
+                        <input type="radio" name="s" value="female">女
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">城市</td>
+                <td class="right">
+                    <select>
+                        <option value="北京" selected>北京</option>
+                        <option value="上海">上海</option>
+                        <option value="武汉">武汉</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">爱好</td>
+                <td class="right">
+                    <form>
+                        <input type="checkbox" value="打球">打球
+                        <input type="checkbox" value="艺术">艺术
+                        <input type="checkbox" value="科学">科学
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td class="personal">个人描述</td>
+                <td class="right">
+                    <textarea cols="30" rows="10">这是一个多行输入框</textarea>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <form>
+            <input type="submit" value="确认提交" class="submit">
+        </form>
+    </div>
+    <div class="left">
+    <div class="b">
+        <h1>文章一级标题</h1>
+        <h2 class="huise">文章二级标题</h2>
+        <p class="huise">文章作者&nbsp&nbsp&nbsp文章发表时间</p>
+        <p class="suojin">这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，这是一段很长的段落。</p>
+        <p>这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，</p>
+        <p>这是一段很长的段落，这是一段很长的段落，<a href="#">这里有一个链接链接到百度</a>，这是一段很长的段落，这是一段很长的<span class="cutizi">段落</span>，这是一段很长的段落,这是一段很长的段落,这是一段很长的段落.
+        </p>
+        <img src="images/a.png" width="200px">
+    </div>
+    <div class="b">
+        <h1>文章一级标题</h1>
+        <h2 class="huise">文章二级标题</h2>
+        <p class="huise">文章作者&nbsp&nbsp&nbsp文章发表时间</p>
+        <p class="suojin">这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，这是一段很长的段落。</p>
+        <p>这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，这是一段很长的段落，</p>
+        <p>这是一段很长的段落，这是一段很长的段落，<a href="#">这里有一个链接链接到百度</a>，这是一段很长的段落，这是一段很长的<span class="cutizi">段落</span>，这是一段很长的段落,这是一段很长的段落,这是一段很长的段落.
+        </p>
+        <img src="images/a.png" width="200px"><br>
+        <ul>
+            <li>列表1</li>
+            <li>列表2</li>
+            <li>列表3</li>
+        </ul>
+    </div>
+    <div class="b">
+        <h1>图片</h1>
+        <div class="img">
+            <p>好看的图片</p>
+            <img src="images/d.png" width="80px">
+        </div>
+        <div class="img">
+            <p>好看的图片</p>
+            <img src="images/d.png" width="80px">
+        </div>
+        <div class="img">
+            <p>好看的图片</p>
+            <img src="images/d.png" width="80px">
+        </div>
+        <div class="img">
+            <p>好看的图片</p>
+            <img src="images/d.png" width="80px">
+        </div>
+        <div class="img">
+            <p>好看的图片</p>
+            <img src="images/d.png" width="80px">
+        </div>
+        <div class="img">
+            <p>好看的图片</p>
+            <img src="images/d.png" width="80px">
+        </div>
+        <div class="img">
+            <p>好看的图片</p>
+            <img src="images/d.png" width="80px">
+        </div>
+        <div class="img">
+            <p>好看的图片</p>
+            <img src="images/d.png" width="80px">
+        </div>
+        <div class="img">
+            <p>好看的图片</p>
+            <img src="images/d.png" width="80px">
+        </div>
+        <div class="img">
+            <p>好看的图片</p>
+            <img src="images/d.png" width="80px">
+        </div>
+    </div>
+    <div class="b">
+        <h1>最后一篇文章一级标题</h1>
+        <h2>文章二级标题</h2>
+        <ol>
+            <li>排名1</li>
+            <li>排名2</li>
+            <li>排名3</li>
+        </ol>
+        <p>下面是一个表格，我给表格顶顶顶顶顶顶顶顶顶</p>
+        <table border="1" cellpadding="0" cellspacing="0">
+            <tr>
+                <th>表头</th>
+                <th>表头</th>
+                <th>表头</th>
+            </tr>
+            <tr>
+                <td>表格单元内容</td>
+                <td>表格单元内容</td>
+                <td><a href="#">操作</a></td>
+            </tr>
+            <tr>
+                <td>表格单元内容</td>
+                <td>表格单元内容</td>
+                <td><a href="#">操作</a></td>
+            </tr>
+            <tr>
+                <td>表格单元内容</td>
+                <td>表格单元内容</td>
+                <td><a href="#">操作</a></td>
+            </tr>
+            <tr>
+                <td>表格单元内容</td>
+                <td>表格单元内容</td>
+                <td><a href="#">操作</a></td>
+            </tr>
+            <tr>
+                <td>总计</td>
+                <td colspan="2">1000</td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    </div>
+    <div class="copyright">
+        <p>版权所有&copy;</p>
+    </div>
+</body>
+</html>
